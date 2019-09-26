@@ -3,9 +3,9 @@
 
 // This code will run as soon as the page loads
 window.onload = function() {
-  $("#lap").on("click", recordLap);
   $("#stop").on("click", stop);
   $("#reset").on("click", reset);
+  $("#pause").on("click", pause);
   $("#start").on("click", start);
 };
 
@@ -15,11 +15,9 @@ var intervalId;
 // prevents the clock from being sped up unnecessarily
 var clockRunning = false;
 var time = 0;
-var lap = 1;
 
 function reset() {
   time = 0;
-  lap = 1;
 
   // DONE: Change the "display" div to "00:00."
   $("#display").text("00:00");
@@ -35,21 +33,23 @@ function start() {
     clockRunning = true;
   }
 }
+
+function pause() {
+  clearInterval(intervalId);
+  clockRunning = false;
+}
 function stop() {
   // DONE: Use clearInterval to stop the count here and set the clock to not be running.
   clearInterval(intervalId);
   clockRunning = false;
-}
-function recordLap() {
-  // DONE: Get the current time, pass that into the timeConverter function,
-  //       and save the result in a variable.
-  var converted = timeConverter(time);
-  // DONE: Add the current lap and time to the "laps" div.
-  $("#laps").append("<p>Lap " + lap + " : " + converted + "</p>");
 
-  // DONE: Increment lap by 1. Remember, we can't use "this" here.
-  lap++;
+  var converted = Math.ceil(time / 60);
+  // DONE: Add the current lap and time to the "laps" div.
+  $("#timeMessage").prepend(
+    "<p>Good job! You worked " + converted + " minutes!</p>"
+  );
 }
+
 function count() {
   // DONE: increment time by 1, remember we cant use "this" here.
   time++;
@@ -75,4 +75,9 @@ function timeConverter(t) {
   }
 
   return minutes + ":" + seconds;
+}
+
+function roundUp(t) {
+  var minutesRounded = Math.ceil(t / 60);
+  return minutesRounded;
 }
