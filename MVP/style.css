@@ -1,6 +1,6 @@
-body { /* Visual */
+/* body { 
     background: black;
-  }
+  } */
   
   #display {
     font-family: monospace;
@@ -45,6 +45,6 @@ body { /* Visual */
     text-align: center;
   
     /* Visual */
-    color: white;
+    /* color: white; */
   }
   

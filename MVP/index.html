@@ -3,7 +3,7 @@
 <html lang="en-us">
 
   <head>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Stopwatch</title>
 <!-- Our CSS style sheet -->
@@ -14,6 +14,129 @@
 
   <body>
 
+    <div class="container">
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1 class="text-center">Where Is My F***ING Money!</h1>
+      </div>
+  
+      <div class="row">
+  
+        <!-- Sign-Up Card-->
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header">
+              Employers
+            </div>
+  
+            <table class="table table-borderless table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Amount owed</th>
+                  <th scope="col">Paid</th>
+                  <th scope="col">Remind</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@ottoisawesome@yahoo.com</td>
+                  <td>$</td>
+                  <td><button type="button" class="btn btn-success">Success</button></td>
+                  <td><button type="button" class="btn btn-danger">Threaten</button></td>
+                  
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                  <td>$</td>
+                  <td><button type="button" class="btn btn-success">Success</button></td>
+                  <td><button type="button" class="btn btn-danger">Threaten</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                  <td>$</td>
+                  <td><button type="button" class="btn btn-success">Success</button></td>
+                  <td><button type="button" class="btn btn-danger">Threaten</button></td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+  
+        <!-- Most Recent Member Card -->
+        <!-- <div class="col-lg-6">
+          <div class="card">
+            <div class="card-header">
+              Most Recent Member
+            </div>
+            <div class="card-body" id="recent-member">
+              <h2 id="name-display"></h2>
+              <h4 id="email-display"></h4>
+              <h4 id="age-display"></h4>
+              <p id="comment-display"></p>
+            </div>
+          </div> -->
+          <div class="card-body">
+  
+              <!-- Sign-up Form (note the various input "types")-->
+              <form role="form">
+                <div class="form-group row">
+                  <label for="name-input">First Name:</label>
+                  <input class="form-control" id="name-input" type="text">
+                </div>
+                <div class="form-group row">
+                  <label for="email-input">Last Name:</label>
+                  <input class="form-control" id="email-input" type="email">
+                </div>
+                <div class="form-group row">
+                  <label for="age-input">Email:</label>
+                  <input class="form-control" id="age-input" type="number">
+                </div>
+                <!-- <div class="form-group row">
+                  <label for="comment-input">How did you hear about us?</label>
+                  <textarea class="form-control" id="comment-input" rows="5"></textarea>
+                </div> -->
+                <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+              </form>
+  
+            </div>
+          
+  
+        </div>
+  
+        <!-- Wells for displaying all users -->
+        <!-- <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header">
+              All Members
+            </div>
+            <div class="card-body">
+              <div id="full-member-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div> -->
+  
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="test.js"></script>
+
+    
     <div id="wrapper">
 
       <div id="display">00:00</div>
@@ -36,7 +159,7 @@
 
     <!-- Script -->
     <script type="text/javascript" src="stopwatch.js"></script>
-
+    <script src="table.js"></script>
   </body>
 
 </html>
