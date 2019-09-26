@@ -1,0 +1,50 @@
+body { /* Visual */
+    background: black;
+  }
+  
+  #display {
+    font-family: monospace;
+    font-size: 120px;
+    color: green;
+  
+    /* Typography */
+    text-align: center;
+  
+    /* Visual */
+    background: black;
+  }
+  
+  #wrapper {
+    /* Box-model */
+    width: 500px;
+
+  }
+  
+  #buttons { /* Typography */
+    text-align: center;
+  }
+  
+  button {
+    width: 100px;
+  
+    /* Box-model */
+    height: 50px;
+  }
+  
+  #timeMessage {
+    width: 100%;
+    height: 200px;
+  
+    /* Positioning */
+    margin-top: 20px;
+  
+    /* Box-model */
+    overflow: auto;
+  
+    /* Typography */
+    text-align: center;
+  
+    /* Visual */
+    color: white;
+  }
+  
