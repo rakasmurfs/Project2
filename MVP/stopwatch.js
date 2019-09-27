@@ -76,8 +76,3 @@ function timeConverter(t) {
 
   return minutes + ":" + seconds;
 }
-
-function roundUp(t) {
-  var minutesRounded = Math.ceil(t / 60);
-  return minutesRounded;
-}
