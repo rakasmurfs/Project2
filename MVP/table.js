@@ -31,7 +31,7 @@ $(document).ready(function () {
     //   .val()
     //   .trim();
     if (name && lastname && email) {
-      var appendTo = '<tr><th scope="row">' + row + '</th><td>' + name + '</td><td>' + lastname + '</td><td>' + email + '</td><td>$</td><td><button type="button" class="btn btn-success">Success</button></td><td><button type="button" class="btn btn-danger">Threaten</button></td></tr>';
+      var appendTo = '<tr><th scope="row">' + row + '</th><td>' + name + '</td><td>' + lastname + '</td><td>' + email + '</td><td>$</td><td><button type="button" class="btn btn-success paid-btn">Success</button></td><td><button type="button" class="btn btn-danger remind-btn">Threaten</button></td></tr>';
       console.log(appendTo)
       $("#listTable").append(appendTo);
     }
@@ -43,8 +43,13 @@ $(document).ready(function () {
 
 
 
+  $(".paid-btn").on("click", function () {
+    alert("Yay! You got paid.");
+  });
 
-
+  $(".remind-btn").on("click", function () {
+    alert("Your payment reminder has been sent.");
+  });
 
 
   // function loop(){
