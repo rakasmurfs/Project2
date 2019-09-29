@@ -1,34 +1,36 @@
-// Add new employer using user inputs
+$(function() {
+  // Add new employer using user inputs
 
-$("#add-employer").on("click", function(event) {
-  event.preventDefault();
-  console.log("yeah click me bitch")
+  $("#add-employer").on("click", function(event) {
+    event.preventDefault();
+    console.log("yeah click me bitch");
 
-  // Get references to page elements
+    // Get references to page elements
 
-  var newEmployerName = $("#name-input");
-  var newEmployerEmail = $("#email-input");
-  var newInvoiceAmount = $("#invoice-input");
+    var newEmployerName = $("#name-input");
+    var newEmployerEmail = $("#email-input");
+    var newInvoiceAmount = $("#invoice-input");
 
-  // Create object to store newEmployer data
-  var newEmployer = {
-    newEmployerName: newEmployerName.val().trim(),
-    newEmployerEmail: newEmployerEmail.val().trim(),
-    newInvoiceAmount: newInvoiceAmount.val().trim(),
-    paidStatus: false
-  };
+    // Create object to store newEmployer data
+    var newEmployer = {
+      employerName: newEmployerName.val().trim(),
+      employerEmail: newEmployerEmail.val().trim(),
+      invoiceAmount: newInvoiceAmount.val().trim(),
+      paidStatus: false
+    };
 
-  // Post request to add new employer to database
-  $.ajax("/api/employers", {
-    type: "POST",
-    data: newEmployer
-  }).then(function(data) {
-    console.log(data);
+    // Post request to add new employer to database
+    $.ajax("/api/employers", {
+      type: "POST",
+      data: newEmployer
+    }).then(function(data) {
+      console.log(data);
+    });
+
+    newEmployerName.val("");
+    newEmployerEmail.val("");
+    newInvoiceAmount.val("");
   });
-
-  newEmployerName.val("");
-  newEmployerEmail.val("");
-  newInvoiceAmount.val("");
 });
 // // The API object contains methods for each kind of request we'll make
 // var API = {
