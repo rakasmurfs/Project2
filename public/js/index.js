@@ -31,6 +31,25 @@ $(function() {
     newEmployerEmail.val("");
     newInvoiceAmount.val("");
   });
+
+  //PUT request to mark invoices as paidStatus true
+
+  $(".invoicePaid").on("click", function(event) {
+    event.preventDefault();
+    var id = $(this).data("id");
+    var paidStatus = {
+      paidStatus: 1
+    };
+    location.reload();
+
+    // Send the PUT request.
+    $.ajax("/api/employers/" + id, {
+      type: "PUT",
+      data: paidStatus
+    }).then(function() {
+      console.log("Get your money, bitch!");
+    });
+  });
 });
 // // The API object contains methods for each kind of request we'll make
 // var API = {
