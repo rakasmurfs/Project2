@@ -11,10 +11,10 @@ module.exports = function(app) {
   // Create a new example
   app.post("/api/employers", function(req, res) {
     db.Employer.create({
-      employerName: req.body.employer_name,
+      employerName: req.body.employerName,
       employerEmail: req.body.employer_email,
       invoiceAmount: req.body.invoiceAmount,
-      paidStatus: red.body.paidStatus
+      paidStatus: req.body.paidStatus
     }).then(function(results) {
       res.json(results);
     });
