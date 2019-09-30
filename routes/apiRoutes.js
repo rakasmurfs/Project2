@@ -12,7 +12,7 @@ module.exports = function(app) {
   app.post("/api/employers", function(req, res) {
     db.Employer.create({
       employerName: req.body.employerName,
-      employerEmail: req.body.employer_email,
+      employerEmail: req.body.employerEmail,
       invoiceAmount: req.body.invoiceAmount,
       paidStatus: req.body.paidStatus
     }).then(function(results) {
