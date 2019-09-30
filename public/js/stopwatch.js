@@ -1,75 +1,8 @@
-<style>
-    #timeMessage {
-        width: 100%;
-        height: 200px;
+// STOPWATCH ACTIVITY (SOLUTION)
+// =============================
 
-        /* Positioning */
-        margin-top: 20px;
-
-        /* Box-model */
-        overflow: auto;
-
-        /* Typography */
-        text-align: center;
-
-        /* Visual */
-        /* color: white; */
-    }
-</style>
-
-<div id="home">
-    <div class="container">
-        <div class="row">
-            <div class="col-8 offset-2">
-                <h1>Timer</h1>
-
-
-
-
-
-                <!-- Div containing our stopwatch controls -->
-                <div id="wrapper">
-
-      <div id="display">00:00</div>
-
-      <!-- Div containing our stopwatch controls -->
-      <div id="buttons">
-        <button id="start">Start</button>
-        <button id="pause">Pause</button>
-        <button id="stop">Stop</button>
-        <button id="reset">Reset</button>
-
-      </div>
-
-      <div id="timeMessage"></div>
-
-    </div>
-
-            <!-- jQuery -->
-            <script type="text/javascript"
-                src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-            <!-- Script -->
-            <script src="../public/js/stopwatch.js"><{{!}}</script>
-
-
-            {{!-- <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul> --}}
-        </div>
-    </div>
-</div>
-</div>
-
-<script>
-    window.onload = function() {
+// This code will run as soon as the page loads
+window.onload = function() {
   $("#stop").on("click", stop);
   $("#reset").on("click", reset);
   $("#pause").on("click", pause);
@@ -143,5 +76,3 @@ function timeConverter(t) {
 
   return minutes + ":" + seconds;
 }
-
-</script>
