@@ -2,8 +2,13 @@ module.exports = function(sequelize, DataTypes) {
   var Employer = sequelize.define("Employer", {
     employerName: DataTypes.STRING,
     employerEmail: DataTypes.STRING,
-    invoiceAmount: DataTypes.DECIMAL,
-    paidStatus: DataTypes.BOOLEAN
+    employerPhoneNumber: DataTypes.BIGINT
   });
+
+  Employer.associate = function(models) {
+    Employer.hasMany(models.Invoice, {
+      onDelete: "cascade"
+    });
+  };
   return Employer;
 };

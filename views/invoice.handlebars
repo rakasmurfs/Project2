@@ -1,8 +1,24 @@
 <div class="container">
 
-<p>
-    {{#each employer}}
-      {{/each}}
-</p>
+
+
+
+
+<select class="selectedEmployer">
+  {{#each employer}}
+       <option value={{this.id}}>{{this.employerName}}, {{this.employerEmail}}</option>
+  {{/each}}
+</select>
+
 
 </div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    console.log("hellloooo do it girl")
+
+    $("select.selectedEmployer").change(function(){
+        var selectedEmployer = $(this).children("option:selected").val();
+        alert("You have selected the employer - " + selectedEmployer);
+  
+});
+</script>

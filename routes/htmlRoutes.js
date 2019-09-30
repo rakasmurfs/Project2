@@ -6,7 +6,7 @@ module.exports = function(app) {
     db.Employer.findAll({}).then(function(dbEmployer) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbEmployer
+        employer: dbEmployer
       });
     });
   });
@@ -18,7 +18,7 @@ module.exports = function(app) {
 
   app.get("/invoice", function(req, res) {
     db.Employer.findAll({}).then(function(dbEmployer) {
-      res.json(dbEmployer);
+      res.render("invoice", { employer: dbEmployer });
     });
   });
 
