@@ -9,14 +9,13 @@ $(function() {
 
     var newEmployerName = $("#name-input");
     var newEmployerEmail = $("#email-input");
-    var newInvoiceAmount = $("#invoice-input");
+    var newEmployerPhoneNumber = $("#number-input");
 
     // Create object to store newEmployer data
     var newEmployer = {
       employerName: newEmployerName.val().trim(),
       employerEmail: newEmployerEmail.val().trim(),
-      invoiceAmount: newInvoiceAmount.val().trim(),
-      paidStatus: false
+      employerPhoneNumber: newEmployerPhoneNumber.val().trim()
     };
 
     // Post request to add new employer to database
@@ -29,7 +28,8 @@ $(function() {
 
     newEmployerName.val("");
     newEmployerEmail.val("");
-    newInvoiceAmount.val("");
+    newEmployerPhoneNumber.val("");
+    location.reload();
   });
 
   //PUT request to mark invoices as paidStatus true

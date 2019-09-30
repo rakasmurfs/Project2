@@ -13,8 +13,7 @@ module.exports = function(app) {
     db.Employer.create({
       employerName: req.body.employerName,
       employerEmail: req.body.employerEmail,
-      invoiceAmount: req.body.invoiceAmount,
-      paidStatus: req.body.paidStatus
+      employerPhoneNumber: req.body.employerPhoneNumber
     }).then(function(results) {
       res.json(results);
     });

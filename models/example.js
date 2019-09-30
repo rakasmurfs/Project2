@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
   var Employer = sequelize.define("Employer", {
     employerName: DataTypes.STRING,
     employerEmail: DataTypes.STRING,
-    employerPhoneNumber: DataTypes.INTEGER
+    employerPhoneNumber: DataTypes.BIGINT
   });
 
   Employer.associate = function(models) {

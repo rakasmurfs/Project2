@@ -6,7 +6,7 @@ module.exports = function(app) {
     db.Employer.findAll({}).then(function(dbEmployer) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbEmployer
+        employer: dbEmployer
       });
     });
   });
