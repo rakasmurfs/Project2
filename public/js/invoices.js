@@ -40,10 +40,11 @@ $(function() {
   $(".paid").on("click", function(event) {
     event.preventDefault();
     console.log("yeah you paid me bitch");
+    var id = $(this).data("id");
     // Create object to store newEmployer data
     $.ajax({
       method: "PUT",
-      url: "/api/invoices"
+      url: "/api/invoices/" + id
     }).then(function(data) {
       console.log(data);
       location.reload();
