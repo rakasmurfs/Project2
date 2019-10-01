@@ -32,9 +32,7 @@ $(function() {
     }).then(function(data) {
       console.log(data);
       invoiceAmount.val("");
-    location.reload();
+      location.reload();
     });
-
-    
   });
 });
