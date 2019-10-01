@@ -59,7 +59,7 @@ function generate() {
   var lineSpacing={
     NormalSpacing:12,
   };
-  
+
   function generate_cutomPDF(employer) {
 
     console.log(employer);
@@ -73,9 +73,9 @@ function generate() {
   };
   
   var customer_BillingInfoJSON={
-    CustomerName:employer[0].employerName,
-    CustomerAddressLine1:'Middle of nowhere',
-    CustomerAddressLine2:'Kansas, 33333',
+    CustomerName: employer[0].employerName,
+    CustomerAddressLine1: employer[0].employerStreet,
+    CustomerAddressLine2: employer[0].employerCity + ", " + employer[0].employerState + " " + employer[0].employerZipCode,
     CustomerAddressLine3:'',
     CustomerEmail:employer[0].employerEmail,
     CustomerPhno:employer[0].employerPhoneNumber.toString(),
