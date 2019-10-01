@@ -18,7 +18,10 @@ module.exports = function(app) {
 
   app.get("/invoice", function(req, res) {
     db.Employer.findAll({}).then(function(dbEmployer) {
-      res.render("invoice", { employer: dbEmployer });
+      res.render("invoice", {
+        employerObj: JSON.stringify(dbEmployer),
+        employer: dbEmployer
+      });
     });
   });
 

@@ -1,4 +1,19 @@
-<div class="container">
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Two tables and header with jspdf-autotable</title>
+  
+  
+  
+  
+  
+</head>
+
+<body>
+
+  <div class="container">
 
 
 
@@ -22,3 +37,15 @@
   
 });
 </script>
+
+  <button onclick="generate_cutomPDF({{employerObj}})">Generate PDF</button>
+
+
+<script  src="/js/jspdf/jspdf.min.js"></script>
+<script  src="/js/invoice.js"></script>
+<script  src="/js/jspdf/jspdf.plugin.autotable.js"></script>
+<script  src="/js/jspdf/jsPdf_Plugins.js"></script>
+
+
+</body>
+</html>
