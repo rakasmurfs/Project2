@@ -3,8 +3,19 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Employer.findAll({}).then(function(dbEmployer) {
+    db.Invoice.findAll({
+      include: [db.Employer]
+    }).then(function(dbInvoices) {
       res.render("index", {
+        msg: "Welcome!",
+        invoices: dbInvoices
+      });
+    });
+  });
+
+  app.get("/employers", function(req, res) {
+    db.Employer.findAll({}).then(function(dbEmployer) {
+      res.render("employers", {
         msg: "Welcome!",
         employer: dbEmployer
       });

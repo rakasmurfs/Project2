@@ -1,51 +1,39 @@
 
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Two tables and header with jspdf-autotable</title>
-  
-  
-  
-  
-  
-</head>
 
-<body>
-
-  <div class="container">
-
-
-
-
-
+<h2>Generate invoice</h2>
+        <div class="card-body">
 <select class="selectedEmployer">
   {{#each employer}}
        <option value={{this.id}}>{{this.employerName}}, {{this.employerEmail}}</option>
   {{/each}}
 </select>
+          <!-- Sign-up Form (note the various input "types")-->
+          <form role="form">
+            <div class="form-group row">
+              <label for="invoice-input">Invoice Amount: </label>
+              <input class="form-control" id="invoice-input" type="text">
+            </div>
 
+            <div class="form-group row">
+              <label for="employee-input">Employer ID: </label>
+              <input class="form-control" id="employer-id-input" type="text">
+            </div>
 
-</div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-    console.log("hellloooo do it girl")
+            
+            <button class="btn btn-default" id="add-invoice" type="button">Submit</button>
+          </form>
 
-    $("select.selectedEmployer").change(function(){
-        var selectedEmployer = $(this).children("option:selected").val();
-        alert("You have selected the employer - " + selectedEmployer);
-  
-});
-</script>
+        </div>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/invoices.js"></script>
+
 
   <button onclick="generate_cutomPDF({{employerObj}})">Generate PDF</button>
 
 
 <script  src="/js/jspdf/jspdf.min.js"></script>
+<script  src="/js/invoices.js"></script>
 <script  src="/js/invoice.js"></script>
 <script  src="/js/jspdf/jspdf.plugin.autotable.js"></script>
 <script  src="/js/jspdf/jsPdf_Plugins.js"></script>
-
-
-</body>
-</html>
