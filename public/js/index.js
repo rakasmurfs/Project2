@@ -12,11 +12,19 @@ $(function() {
     var newEmployerName = $("#name-input");
     var newEmployerEmail = $("#email-input");
     var newEmployerPhoneNumber = $("#number-input");
+    var newEmployerStreet = $("#street-input");
+    var newEmployerCity = $("#city-input");
+    var newEmployerState = $("#state-input")
+    var newEmployerZipCode = $("#zipcode-input");
 
     // Create object to store newEmployer data
     var newEmployer = {
       employerName: newEmployerName.val().trim(),
       employerEmail: newEmployerEmail.val().trim(),
+      employerStreet: newEmployerStreet.val().trim(),
+      employerCity: newEmployerCity.val().trim(),
+      employerState: newEmployerState.val().trim(),
+      employerZipCode: newEmployerZipCode.val().trim(),
       employerPhoneNumber: newEmployerPhoneNumber.val().trim()
     };
 
@@ -31,10 +39,14 @@ $(function() {
     newEmployerName.val("");
     newEmployerEmail.val("");
     newEmployerPhoneNumber.val("");
+    newEmployerStreet.val("");
+    newEmployerCity.val("");
+    newEmployerState.val("");
+    newEmployerZipCode.val("");
     location.reload();
   });
 
-  //PUT request to mark invoices as paidStatus true
+  //PUT request to mark invoices as paidStatus true""
 
   $(".invoicePaid").on("click", function(event) {
     event.preventDefault();
