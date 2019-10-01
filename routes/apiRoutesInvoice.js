@@ -20,14 +20,14 @@ module.exports = function(app) {
     });
   });
 
-  app.put("/api/invoices", function(req, res) {
-    db.Employer.update(
+  app.put("/api/invoices/:id", function(req, res) {
+    db.Invoice.update(
       {
-        paidStatus: req.body.paidStatus
+        paidStatus: true
       },
       {
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       }
     ).then(function(results) {
