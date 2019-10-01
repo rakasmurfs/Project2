@@ -8,7 +8,7 @@ $(function() {
     console.log(selectedEmployer);
   });
 
-  // Add new employer using user inputs
+  // Add new invoice using user inputs
   $("#add-invoice").on("click", function(event) {
     event.preventDefault();
     console.log("yeah click me and pay me");
@@ -32,6 +32,20 @@ $(function() {
     }).then(function(data) {
       console.log(data);
       invoiceAmount.val("");
+      location.reload();
+    });
+  });
+
+  // Add new invoice using user inputs
+  $(".paid").on("click", function(event) {
+    event.preventDefault();
+    console.log("yeah you paid me bitch");
+    // Create object to store newEmployer data
+    $.ajax({
+      method: "PUT",
+      url: "/api/invoices"
+    }).then(function(data) {
+      console.log(data);
       location.reload();
     });
   });
