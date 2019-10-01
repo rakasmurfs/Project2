@@ -3,7 +3,9 @@ var db = require("../models");
 module.exports = function(app) {
   // Get all examples
   app.get("/api/employers", function(req, res) {
-    db.Employer.findAll({}).then(function(results) {
+    db.Employer.findAll({
+      include: [db.Invoice]
+    }).then(function(results) {
       res.json(results);
     });
   });

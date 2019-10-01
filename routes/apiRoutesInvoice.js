@@ -20,8 +20,6 @@ module.exports = function(app) {
     });
   });
 
-
-
   app.put("/api/invoices", function(req, res) {
     db.Employer.update(
       {
