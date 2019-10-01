@@ -27,19 +27,4 @@ module.exports = function(app) {
       res.json(results);
     });
   });
-
-  app.put("/api/employers/", function(req, res) {
-    db.Employer.update(
-      {
-        paidStatus: req.body.paidStatus
-      },
-      {
-        where: {
-          id: req.body.id
-        }
-      }
-    ).then(function(results) {
-      res.json(results);
-    });
-  });
 };
