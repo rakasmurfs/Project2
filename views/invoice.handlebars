@@ -12,13 +12,28 @@
 
 
 </div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-    console.log("hellloooo do it girl")
 
-    $("select.selectedEmployer").change(function(){
-        var selectedEmployer = $(this).children("option:selected").val();
-        alert("You have selected the employer - " + selectedEmployer);
-  
-});
-</script>
+
+<h2>Generate invoice</h2>
+        <div class="card-body">
+
+          <!-- Sign-up Form (note the various input "types")-->
+          <form role="form">
+            <div class="form-group row">
+              <label for="invoice-input">Invoice Amount: </label>
+              <input class="form-control" id="invoice-input" type="text">
+            </div>
+
+            <div class="form-group row">
+              <label for="employee-input">Employer ID: </label>
+              <input class="form-control" id="employer-id-input" type="text">
+            </div>
+
+            
+            <button class="btn btn-default" id="add-invoice" type="button">Submit</button>
+          </form>
+
+        </div>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/invoices.js"></script>
