@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Invoice.associate = function(models) {
-    Invoice.belongsTo(models.Employer, {
+    Invoice.belongsTo(models.Employers, {
       foreignKey: {
         allowNull: false
       }
