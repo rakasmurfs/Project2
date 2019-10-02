@@ -6,8 +6,19 @@
 
         <h2>Current Employers</h2>
 <table>
+    <tr>
+        <th>Employer Name</th>
+        <th>Employer Email</th>
+        <th>Employer Phone Number</th>
+    </tr>
   {{#each employer}}
-       <tr><td>{{this.employerName}}, {{this.employerEmail}} {{this.employerPhoneNumber}}</td></tr>
+    <tr>
+        <td>{{this.employerName}}</td> 
+        <td>{{this.employerEmail}}</td>
+        <td>{{this.employerPhoneNumber}}</td>
+        <td>{{this.id}}</td>
+        <td><button class="edit" data-id="{{this.id}}">Edit</button></td>
+    </tr>
   {{/each}}
 </table>
 
@@ -45,6 +56,7 @@
               <input class="form-control" id="zipcode-input" type="number">
             </div>            
             <button class="btn btn-default" id="add-employer" type="button">Submit</button>
+            <button class="btn btn-default" id="edit-employer" type="button" style="display: none">Save Changes</button>
           </form>
 
         </div>

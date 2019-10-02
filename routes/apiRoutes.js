@@ -10,6 +10,14 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/employers/:id", function(req, res) {
+    db.Employer.findAll({
+      where: { id: req.params.id }
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
+
   // Create a new example
   app.post("/api/employers", function(req, res) {
     db.Employer.create({
@@ -21,6 +29,27 @@ module.exports = function(app) {
       employerState: req.body.employerState,
       employerZipCode: req.body.employerZipCode
     }).then(function(results) {
+      res.json(results);
+    });
+  });
+
+  app.put("/api/employers/:id", function(req, res) {
+    db.Employer.update(
+      {
+        employerName: req.body.employerName,
+        employerEmail: req.body.employerEmail,
+        employerPhoneNumber: req.body.employerPhoneNumber,
+        employerStreet: req.body.employerStreet,
+        employerCity: req.body.employerCity,
+        employerState: req.body.employerState,
+        employerZipCode: req.body.employerZipCode
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    ).then(function(results) {
       res.json(results);
     });
   });
