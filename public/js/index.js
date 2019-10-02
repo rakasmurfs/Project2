@@ -1,6 +1,5 @@
 $(function() {
   // Add new employer using user inputs
-
   $("#add-employer").on("click", function(event) {
     event.preventDefault();
     console.log("yeah click me bitch");
@@ -44,25 +43,117 @@ $(function() {
     location.reload();
   });
 
-  //PUT request to mark invoices as paidStatus true""
-
-  $(".invoicePaid").on("click", function(event) {
+  $(".edit").on("click", function(event) {
     event.preventDefault();
+    $("#edit-employer").css("display", "unset");
+    $("#add-employer").hide();
+    console.log("edit button works");
     var id = $(this).data("id");
-    var paidStatus = {
-      paidStatus: 1
-    };
-    location.reload();
+    $.ajax({
+      method: "GET",
+      url: "/api/employers/" + id
+    }).then(function(data) {
+      console.log(data);
+      $("#name-input").val(data[0].employerName);
+      $("#email-input").val(data[0].employerEmail);
+      $("#number-input").val(data[0].employerPhoneNumber);
+      $("#street-input").val(data[0].employerStreet);
+      $("#city-input").val(data[0].employerCity);
+      $("#state-input").val(data[0].employerState);
+      $("#zipcode-input").val(data[0].employerZipCode);
+    });
+    $("#edit-employer").on("click", function(event) {
+      event.preventDefault();
+      console.log("trying crazy stuff");
+      //var id = data[0].id;
+      console.log(id);
+      var newEmployerName = $("#name-input");
+      var newEmployerEmail = $("#email-input");
+      var newEmployerPhoneNumber = $("#number-input");
+      var newEmployerStreet = $("#street-input");
+      var newEmployerCity = $("#city-input");
+      var newEmployerState = $("#state-input")
+      var newEmployerZipCode = $("#zipcode-input");
 
-    // Send the PUT request.
-    $.ajax("/api/employers/" + id, {
-      type: "PUT",
-      data: paidStatus
-    }).then(function() {
-      console.log("Get your money, bitch!");
+      // Create object to store newEmployer data
+      var newEmployer = {
+        employerName: newEmployerName.val().trim(),
+        employerEmail: newEmployerEmail.val().trim(),
+        employerStreet: newEmployerStreet.val().trim(),
+        employerCity: newEmployerCity.val().trim(),
+        employerState: newEmployerState.val().trim(),
+        employerZipCode: newEmployerZipCode.val().trim(),
+        employerPhoneNumber: newEmployerPhoneNumber.val().trim()
+      };
+      $.ajax({
+        method: "PUT",
+        url: "/api/employers/" + id,
+        data: newEmployer
+      }).then(function(data) {
+        console.log(data);
+      });
+      newEmployerName.val("");
+      newEmployerEmail.val("");
+      newEmployerPhoneNumber.val("");
+      newEmployerStreet.val("");
+      newEmployerCity.val("");
+      newEmployerState.val("");
+      newEmployerZipCode.val("");
+      location.reload();
     });
   });
 });
+
+$("#edit-employer").on("click", function(event) {
+  event.preventDefault();
+  console.log("trying crazy stuff");
+  var id = $(this).data("id");
+  console.log(id);
+  var newEmployerName = $("#name-input");
+  var newEmployerEmail = $("#email-input");
+  var newEmployerPhoneNumber = $("#number-input");
+  var newEmployerStreet = $("#street-input");
+  var newEmployerCity = $("#city-input");
+  var newEmployerState = $("#state-input")
+  var newEmployerZipCode = $("#zipcode-input");
+
+  // Create object to store newEmployer data
+  var newEmployer = {
+    employerName: newEmployerName.val().trim(),
+    employerEmail: newEmployerEmail.val().trim(),
+    employerStreet: newEmployerStreet.val().trim(),
+    employerCity: newEmployerCity.val().trim(),
+    employerState: newEmployerState.val().trim(),
+    employerZipCode: newEmployerZipCode.val().trim(),
+    employerPhoneNumber: newEmployerPhoneNumber.val().trim()
+  };
+  $.ajax({
+    method: "PUT",
+    url: "/api/employers/" + id,
+    data: newEmployer
+  }).then(function(data) {
+    console.log(data);
+  });
+});
+
+//PUT request to mark invoices as paidStatus true""
+$(".invoicePaid").on("click", function(event) {
+  event.preventDefault();
+  var id = $(this).data("id");
+  var paidStatus = {
+    paidStatus: 1
+  };
+  location.reload();
+
+  // Send the PUT request.
+  $.ajax("/api/employers/" + id, {
+    type: "PUT",
+    data: paidStatus
+  }).then(function() {
+    console.log("Get your money, bitch!");
+  });
+});
+// });
 // // The API object contains methods for each kind of request we'll make
 // var API = {
 //   saveEmployer: function(results) {
