@@ -153,6 +153,22 @@ $(".invoicePaid").on("click", function(event) {
     console.log("Get your money, bitch!");
   });
 });
+
+$(".delete-employer").on("click", function(event) {
+  event.preventDefault();
+  var id = $(this).data("id");
+
+  // Send the PUT request.
+  $.ajax({
+    type: "DELETE",
+    url: "api/employers/" + id
+  }).then(function() {
+    console.log("BYEBYE");
+    location.reload();
+  });
+});
+
+//       type: "DELETE"
 // });
 // // The API object contains methods for each kind of request we'll make
 // var API = {
