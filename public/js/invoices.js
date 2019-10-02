@@ -29,7 +29,7 @@ $(function() {
     $.ajax("/api/invoices", {
       type: "POST",
       data: newInvoice
-    }).then(function(data) {
+    }).then(function(data) { 
       console.log(data);
       invoiceAmount.val("");
       location.reload();
