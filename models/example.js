@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Employer = sequelize.define("Employer", {
+  var Employer = sequelize.define("Employers", {
     employerName: DataTypes.STRING,
     employerEmail: DataTypes.STRING,
     employerStreet: DataTypes.STRING,
