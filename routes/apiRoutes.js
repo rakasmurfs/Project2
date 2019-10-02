@@ -60,6 +60,7 @@ module.exports = function(app) {
       results
     ) {
       res.json(results);
+      console.log("deleting...");
     });
   });
 };
