@@ -3,6 +3,7 @@
 <h2>Generate invoice</h2>
         <div class="card-body">
 <select class="selectedEmployer">
+    <option disabled selected value> -- select an option -- </option>
   {{#each employer}}
        <option value={{this.id}}>{{this.employerName}}, {{this.employerEmail}}</option>
   {{/each}}
