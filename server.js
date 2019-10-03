@@ -1,14 +1,11 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-<<<<<<< HEAD
 var passport   = require('passport')
 var session    = require('express-session')
 var bodyParser = require('body-parser')
 
 
-=======
->>>>>>> a5c2cfd81b38ff26abe1a15b5179739c28674838
 var db = require("./models");
 
 var app = express();
@@ -49,13 +46,10 @@ app.set("view engine", "handlebars");
 
 require("./routes/apiRoutes")(app);
 require("./routes/apiRoutesInvoice")(app);
-<<<<<<< HEAD
 require('./config/passport/passport.js')(passport, db.user);
 require("./routes/auth")(app,passport);
 require("./routes/htmlRoutes")(app);
-=======
 require("./routes/emailRoutes")(app);
->>>>>>> a5c2cfd81b38ff26abe1a15b5179739c28674838
 
 var syncOptions = { force: false };
 
