@@ -13,8 +13,8 @@ module.exports = function(app) {
     var mailOptions = {
       from: req.body.email,
       to: "rhondakremer@gmail.com",
-      subject: "Payment Reminder",
-      text: "Please see attached invoice.",
+      subject: req.body.subject,
+      text: req.body.message,
       attachments: [
         {
           path: "/Users/macuser/Downloads/invoice.pdf"
