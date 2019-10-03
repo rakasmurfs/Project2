@@ -3,7 +3,17 @@ var db = require("../models");
 module.exports = function(app) {
   // Get all examples
   app.get("/api/employers", function(req, res) {
-    db.Employer.findAll({}).then(function(results) {
+    db.Employer.findAll({
+      include: [db.Invoice]
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
+
+  app.get("/api/employers/:id", function(req, res) {
+    db.Employer.findAll({
+      where: { id: req.params.id }
+    }).then(function(results) {
       res.json(results);
     });
   });
@@ -13,8 +23,33 @@ module.exports = function(app) {
     db.Employer.create({
       employerName: req.body.employerName,
       employerEmail: req.body.employerEmail,
-      employerPhoneNumber: req.body.employerPhoneNumber
+      employerPhoneNumber: req.body.employerPhoneNumber,
+      employerStreet: req.body.employerStreet,
+      employerCity: req.body.employerCity,
+      employerState: req.body.employerState,
+      employerZipCode: req.body.employerZipCode
     }).then(function(results) {
+      res.json(results);
+    });
+  });
+
+  app.put("/api/employers/:id", function(req, res) {
+    db.Employer.update(
+      {
+        employerName: req.body.employerName,
+        employerEmail: req.body.employerEmail,
+        employerPhoneNumber: req.body.employerPhoneNumber,
+        employerStreet: req.body.employerStreet,
+        employerCity: req.body.employerCity,
+        employerState: req.body.employerState,
+        employerZipCode: req.body.employerZipCode
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    ).then(function(results) {
       res.json(results);
     });
   });
@@ -25,21 +60,7 @@ module.exports = function(app) {
       results
     ) {
       res.json(results);
-    });
-  });
-
-  app.put("/api/employers/", function(req, res) {
-    db.Employer.update(
-      {
-        paidStatus: req.body.paidStatus
-      },
-      {
-        where: {
-          id: req.body.id
-        }
-      }
-    ).then(function(results) {
-      res.json(results);
+      console.log("deleting...");
     });
   });
 };

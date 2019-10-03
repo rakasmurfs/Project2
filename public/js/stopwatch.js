@@ -48,6 +48,12 @@ function stop() {
   $("#timeMessage").prepend(
     "<p>Good job! You worked " + converted + " minutes!</p>"
   );
+  var mathAmount =
+    (converted / 60) *
+    $("#hourly")
+      .val()
+      .trim();
+  $("#invoice-input").val(mathAmount);
 }
 
 function count() {

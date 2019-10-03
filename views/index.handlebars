@@ -4,46 +4,43 @@
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
 
-        <h2>Current Employers</h2>
+        <h2>Outstanding Invoices</h2>
 <table>
-  {{#each employer}}
-       <tr><td>{{this.employerName}}, {{this.employerEmail}} {{this.employerPhoneNumber}}</td></tr>
+    <tr>
+      <th>Invoice Amount</th>
+      <th>Employer Name</th>
+    </tr>
+  {{#each invoices}}
+  {{#unless paidStatus}}
+      
+       <tr><td>{{this.invoiceAmount}}</td>
+       <td>{{this.Employer.employerName}}</td>
+       <td><button class="paid" data-id="{{this.id}}">Paid</button></td>
+       <td><button class="remind">Remind</button></td>
+       </tr>
+  {{/unless}}
   {{/each}}
 </table>
 
-        <h2>Add an employer</h2>
-        <div class="card-body">
 
-          <!-- Sign-up Form (note the various input "types")-->
-          <form role="form">
-            <div class="form-group row">
-              <label for="name-input">Name:</label>
-              <input class="form-control" id="name-input" type="text">
-            </div>
-            <div class="form-group row">
-              <label for="email-input">Email:</label>
-              <input class="form-control" id="email-input" type="email">
-            </div>
-            <div class="form-group row">
-              <label for="number-input">Phone Number</label>
-              <input class="form-control" id="number-input" type="number">
-            </div>
+<h2>Paid Invoices</h2>
+<table>
+    <tr>
+      <th>Invoice Amount</th>
+      <th>Employer Name</th>
+      <th>Date Paid</th>
+    </tr>
+  {{#each invoices}}
+  {{#if paidStatus}}
+      
+       <tr><td>{{this.invoiceAmount}}</td>
+       <td>{{this.Employer.employerName}}</td>
+       <td>{{this.updatedAt}}</td>
+       </tr>
+  {{/if}}
+  {{/each}}
+</table>
 
-            <button class="btn btn-default" id="add-employer" type="button">Submit</button>
-          </form>
-
-        </div>
-
-
-        {{!-- <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul> --}}
       </div>
     </div>
   </div>
@@ -51,3 +48,4 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+<script src="/js/invoices.js"></script>
