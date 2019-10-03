@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Employer = sequelize.define("Employer", {
     employerName: DataTypes.STRING,
     employerEmail: DataTypes.STRING,
@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     employerPhoneNumber: DataTypes.STRING
   });
 
-  Employer.associate = function(models) {
+  Employer.associate = function (models) {
     Employer.hasMany(models.Invoice, {
       onDelete: "cascade"
     });
