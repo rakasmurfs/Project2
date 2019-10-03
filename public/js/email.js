@@ -21,7 +21,9 @@ $(function() {
       data: email
     }).then(function(data) {
       console.log("yes, you did it", data);
-      email.val("");
+      $("#service-input").val("");
+      $("#email-input").val("");
+      $("#password-input").val("");
     });
   });
 });
@@ -35,14 +37,14 @@ $(function() {
 //           pass: 'hornplaya15'
 //         }
 //       });
-      
+
 //       var mailOptions = {
 //         from: 'rhondakremer@gmail.com',
 //         to: 'rhondakremer@gmail.com',
 //         subject: "Payment Reminder",
 //         text: 'That was easy!'
 //       };
-      
+
 //       transporter.sendMail(mailOptions, function(error, info){
 //         if (error) {
 //           console.log(error);
