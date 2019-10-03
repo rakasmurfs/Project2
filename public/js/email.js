@@ -13,6 +13,12 @@ $(function() {
     );
   });
 
+//   $('#i_file').change( function(event) {
+//     var tmppath = URL.createObjectURL(event.target.files[0]);
+//         $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+//         $("#disp_tmp_path").html(tmppath);
+//     });
+
   $("#email").on("click", function() {
     console.log("hello");
     var serviceInput = $("#service-input")
@@ -30,13 +36,17 @@ $(function() {
     var message = $("#message-input")
       .val()
       .trim();
+    var path = $("#path-input")
+      .val()
+      .trim();
 
     var email = {
       serviceInput: serviceInput,
       email: email,
       password: password,
       subject: subject,
-      message: message
+      message: message,
+      path: path
     };
     $.ajax("/email/send", {
       type: "POST",

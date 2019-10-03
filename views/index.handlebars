@@ -9,14 +9,15 @@
     <tr>
       <th>Invoice Amount</th>
       <th>Employer Name</th>
+      <th>Click When</th>
+    
     </tr>
   {{#each invoices}}
   {{#unless paidStatus}}
       
-       <tr><td>{{this.invoiceAmount}}</td>
+       <tr><td>${{this.invoiceAmount}}</td>
        <td>{{this.Employer.employerName}}</td>
        <td><button class="paid" data-id="{{this.id}}">Paid</button></td>
-       <td><button class="remind">Remind</button></td>
        </tr>
   {{/unless}}
   {{/each}}
