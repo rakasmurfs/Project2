@@ -1,51 +1,127 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
+<head>
+    <title>Cash Track App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="HTML-CSS/layout/styles/style.css" rel="stylesheet" type="text/css" media="all">
+</head>
 
-        <h2>Outstanding Invoices</h2>
-<table>
-    <tr>
-      <th>Invoice Amount</th>
-      <th>Employer Name</th>
-    </tr>
-  {{#each invoices}}
-  {{#unless paidStatus}}
-      
-       <tr><td>{{this.invoiceAmount}}</td>
-       <td>{{this.Employer.employerName}}</td>
-       <td><button class="paid" data-id="{{this.id}}">Paid</button></td>
-       <td><button class="remind">Remind</button></td>
-       </tr>
-  {{/unless}}
-  {{/each}}
-</table>
-
-
-<h2>Paid Invoices</h2>
-<table>
-    <tr>
-      <th>Invoice Amount</th>
-      <th>Employer Name</th>
-      <th>Date Paid</th>
-    </tr>
-  {{#each invoices}}
-  {{#if paidStatus}}
-      
-       <tr><td>{{this.invoiceAmount}}</td>
-       <td>{{this.Employer.employerName}}</td>
-       <td>{{this.updatedAt}}</td>
-       </tr>
-  {{/if}}
-  {{/each}}
-</table>
-
-      </div>
+<body id="top">
+    <!-- ################################################################################################ -->
+    <div class="wrapper row0">
+        <div id="topbar" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <div class="fl_left">
+                <ul class="nospace">
+                    <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
+                    <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+                </ul>
+            </div>
+            <div class="fl_right">
+                <ul class="nospace">
+                    <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
+                    <li><a href="#">Add Employer</a></li>
+                    <li><a href="#">Create Invoice</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+    <!-- ################################################################################################ -->
+    <!-- Top Background Image Wrapper -->
+    <div class="bgded overlay" style="background-image: url('HTML-CSS/images/backgrounds/01.png')">
+        <!-- ################################################################################################ -->
+        <div class="wrapper row1">
+            <header id="header" class="hoc clear">
+                <!-- ################################################################################################ -->
+                <div id="logo" class="fl_center">
+                    <h1><a href="index.html">Cash Track App</a></h1>
+                </div>
+                <!-- ################################################################################################ -->
+                <nav id="mainav" class="fl_right">
+                    <ul class="clear">
+                        <li class="active"><a href="index.html">Home</a></li>
+
+
+                        <li><a href="#">Add Employer</a></li>
+                        <li><a href="#">Create Invoice</a></li>
+                    </ul>
+                    </li>
+
+                </nav>
+            </header>
+            </header>
+            <!-- ################################################################################################ -->
+            <div id="pageintro" class="hoc clear">
+                <article>
+                    <h2 class="heading">Keep Track of Your Time and Your Cash</h2>
+                    <p>Manage your work and time, generate invoices.</p>
+                    <footer><a class="btn" href="#">Generate Invoice</a></footer>
+                </article>
+            </div>
+        </div>
+    </div>
+    <!-- ################################################################################################ -->
+    <div class="wrapper row2 bgded overlay" style="background-image: url('HTML-CSS/images/backgrounds/03.png')">
+        <footer id="footer" class="hoc clear">
+            <!-- ################################################################################################ -->
+
+            <div class="one_quarter">
+                <h6 class="title">Company Name</h6>
+                <ul class="nospace linklist contact">
+                    <li><i class="fa fa-map-marker"></i>
+                        <address>
+          Street Name &amp; Number, Town, Postcode/Zip
+          </address>
+                    </li>
+                    <li><i class="fa fa-phone"></i> (123) 456 7890<br> (123) 456 7890</li>
+                    <li><i class="fa fa-fax"></i> (123) 456 7890</li>
+                    <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+                </ul>
+            </div>
+            <div class="one_quarter">
+                <h6 class="title">Outstanding Invoices</h6>
+                <ul class="nospace linklist">
+                    {{#each invoices}}
+                    {{#unless paidStatus}}
+                      
+                        <li><a href="#">{{this.Employer.employerName}}</a></li>
+                        
+                    {{/unless}}
+                    {{/each}}
+                    </li>
+                    <li>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="one_quarter">
+                <h6 class="title">Amount Due</h6>
+                <ul class="nospace linklist">
+                    <li>
+                        <article>
+                        {{#each invoices}}
+                        {{#unless paidStatus}}
+                            
+                            <li><a href="#">{{this.invoiceAmount}}</a></li>
+          
+                        {{/unless}}
+                        {{/each}}
+                        </article>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+            </div>
+            <!-- ################################################################################################ -->
+        </footer>
+    </div>
+
+    <!-- ################################################################################################ -->
+    <!-- Insert Javascripts here -->
+    <script type="text/javascript" src="stopwatch.js"></script>
+    <script src="table.js"></script>
+</body>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
 <script src="/js/invoices.js"></script>
+
