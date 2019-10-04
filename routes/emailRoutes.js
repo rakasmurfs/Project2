@@ -1,6 +1,4 @@
 var nodemailer = require("nodemailer");
-var http = require('http');
-var fs = require('fs');
 
 module.exports = function(app) {
   app.post("/email/send", function(req, res) {
