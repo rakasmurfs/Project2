@@ -2,7 +2,7 @@
     <title>Cash Track App</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="HTML-CSS/layout/styles/style.css" rel="stylesheet" type="text/css" media="all">
+   <link rel="stylesheet" href="/styles/table.css" media="screen" title="no title" charset="utf-8">
 </head>
 
 <body id="top">
@@ -23,8 +23,42 @@
             <!-- ################################################################################################ -->
             <div id="pageintro" class="hoc clear">
                 <article>
-                   
 
+  <h2>Outstanding Invoices</h2>
+<table style="width: 150%">
+    <tr>
+      <th>Invoice Amount</th>
+      <th>Employer Name</th>
+      <th>Date Paid</th>
+    </tr>
+{{#each invoices}}
+  {{#unless paidStatus}}
+
+       <tr><td>{{this.invoiceAmount}}</td>
+       <td>{{this.Employer.employerName}}</td>
+       <td><button class="paid" data-id="{{this.id}}">Paid</button></td>
+       </tr>
+  {{/unless}}
+  {{/each}}
+</table>
+                   
+<h2>Paid Invoices</h2>
+<table style="width: 150%">
+    <tr>
+      <th>Invoice Amount</th>
+      <th>Employer Name</th>
+      <th>Date Paid</th>
+    </tr>
+  {{#each invoices}}
+  {{#if paidStatus}}
+
+       <tr><td>{{this.invoiceAmount}}</td>
+       <td>{{this.Employer.employerName}}</td>
+       <td>{{this.updatedAt}}</td>
+       </tr>
+  {{/if}}
+  {{/each}}
+</table>
 
                    
                 </article>
