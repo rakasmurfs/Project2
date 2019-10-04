@@ -16,7 +16,6 @@ module.exports = function (app) {
   app.get("/employers", function (req, res) {
     db.Employer.findAll({}).then(function (dbEmployer) {
       res.render("employers", {
-        msg: "Welcome!",
         employer: dbEmployer
       });
     });
