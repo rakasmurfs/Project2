@@ -6,7 +6,7 @@
 <div class="bgded overlay" style="background-image: url('HTML-CSS/images/backgrounds/01.png')">
     <!-- ################################################################################################ -->
     <div class="wrapper row1">
-
+    
         <div class="wrapper60">
             <form role="form">
                 <div class="form-group">
@@ -21,9 +21,17 @@
                     <label for="password-input">Password</label>
                     <input class="form-control" id="password-input" type="password" placeholder="password">
                 </div>
+                <hr>
+                <select class="selectedEmployer">
+                    <option disabled selected value> -- select an option -- </option>
+                    {{#each employer}}
+                    <option value={{this.employerEmail}}>{{this.employerName}}, {{this.employerEmail}}</option>
+                    {{/each}}
+                </select>
+                <hr>
                 <p>Pick an email template or write your own</p>
-                <button id="initial-message" >Initial Bill</button>
-                <button id="reminder-message" >Remind</button>
+                <button id="initial-message">Initial Bill</button>
+                <button id="reminder-message">Remind</button>
                 <div class="form-group">
                     <label for="subject-input">Subject</label>
                     <input class="form-control" id="subject-input" type="text">
@@ -34,10 +42,11 @@
                 </div>
                 <div class="form-group">
                     <label for="path-input">Attachment File Path</label>
-                    <input class="form-control" id="path-input" type="text" placeholder="/Users/macuser/Downloads/invoice.pdf">
+                    <input class="form-control" id="path-input" type="text"
+                        placeholder="/Users/macuser/Downloads/invoice.pdf">
                 </div>
             </form>
-
+    
             <button id="email">Send Email</button>
         </div>
 
@@ -46,6 +55,8 @@
 
     </div>
 </div>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/invoices.js"></script>
+<script src="/js/email.js"></script>
 
 
