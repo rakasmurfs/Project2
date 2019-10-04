@@ -28,8 +28,13 @@ module.exports = function (app) {
   });
 
   app.get("/sendReminder", function (req, res) {
-    res.render("sendReminder");
+    db.Employer.findAll({}).then(function (dbEmployer) {
+      res.render("sendReminder", {
+        employer: dbEmployer
+      });
+    });
   });
+
 
   app.get("/invoice", function (req, res) {
     db.Employer.findAll({}).then(function (dbEmployer) {
