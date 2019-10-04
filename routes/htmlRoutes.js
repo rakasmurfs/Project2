@@ -16,7 +16,6 @@ module.exports = function(app) {
   app.get("/employers", function(req, res) {
     db.Employer.findAll({}).then(function(dbEmployer) {
       res.render("employers", {
-        msg: "Welcome!",
         employer: dbEmployer
       });
     });
@@ -52,12 +51,17 @@ module.exports = function(app) {
     res.render("timer");
   });
 
-  app.get("/sendReminder", function(req, res) {
-    res.render("sendReminder");
+  app.get("/sendReminder", function (req, res) {
+    db.Employer.findAll({}).then(function (dbEmployer) {
+      res.render("sendReminder", {
+        employer: dbEmployer
+      });
+    });
   });
 
-  app.get("/invoice", function(req, res) {
-    db.Employer.findAll({}).then(function(dbEmployer) {
+
+  app.get("/invoice", function (req, res) {
+    db.Employer.findAll({}).then(function (dbEmployer) {
       res.render("invoice", {
         employerObj: JSON.stringify(dbEmployer),
         employer: dbEmployer

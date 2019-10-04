@@ -1,5 +1,16 @@
 $(function() {
+
+    $("select.selectedEmployer").change(function() {
+        console.log(this.employerEmail)
+        var selectedEmployer = $(this)
+          .children("option:selected")
+          .val();
+        $("#email-to-input").val(selectedEmployer);
+        
+      });
+
   $("#initial-message").on("click", function() {
+    event.preventDefault();
     $("#subject-input").val("Invoice");
     $("#message-input").val(
       "Please find attached an invoice for my recent work for you. I appreciate your prompt attention in remitting this payment. Please let me know if you have any question."
@@ -7,6 +18,7 @@ $(function() {
   });
 
   $("#reminder-message").on("click", function() {
+    event.preventDefault();
     $("#subject-input").val("Payment Reminder");
     $("#message-input").val(
       "This is a reminder that payment has not been received for the attached invoice. Please send as soon as possible."
@@ -30,6 +42,9 @@ $(function() {
     var password = $("#password-input")
       .val()
       .trim();
+    var sendTo = $("#email-to-input")
+      .val()
+      .trim()
     var subject = $("#subject-input")
       .val()
       .trim();
@@ -44,6 +59,7 @@ $(function() {
       serviceInput: serviceInput,
       email: email,
       password: password,
+      sendTo: sendTo,
       subject: subject,
       message: message,
       path: path

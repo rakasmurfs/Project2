@@ -1,33 +1,35 @@
-// STOPWATCH ACTIVITY (SOLUTION)
-// =============================
+/* eslint-disable no-irregular-whitespace */
+/* eslint-disable prettier/prettier */
+// STOPWATCH ACTIVITY (SOLUTION)
+// =============================
 
-// This code will run as soon as the page loads
-window.onload = function() {
+// This code will run as soon as the page loads
+this.onload = function () {
   $("#stop").on("click", stop);
   $("#reset").on("click", reset);
   $("#pause").on("click", pause);
   $("#start").on("click", start);
 };
 
-//  Variable that will hold our setInterval that runs the stopwatch
+//  Variable that will hold our setInterval that runs the stopwatch
 var intervalId;
 
-// prevents the clock from being sped up unnecessarily
+// prevents the clock from being sped up unnecessarily
 var clockRunning = false;
 var time = 0;
 
 function reset() {
   time = 0;
 
-  // DONE: Change the "display" div to "00:00."
+  // DONE: Change the "display" div to "00:00."
   $("#display").text("00:00");
 
-  // DONE: Empty the "laps" div.
+  // DONE: Empty the "laps" div.
   $("#laps").text("");
 }
 
 function start() {
-  // DONE: Use setInterval to start the count here and set the clock to running.
+  // DONE: Use setInterval to start the count here and set the clock to running.
   if (!clockRunning) {
     intervalId = setInterval(count, 1000);
     clockRunning = true;
@@ -39,14 +41,14 @@ function pause() {
   clockRunning = false;
 }
 function stop() {
-  // DONE: Use clearInterval to stop the count here and set the clock to not be running.
+  // DONE: Use clearInterval to stop the count here and set the clock to not be running.
   clearInterval(intervalId);
   clockRunning = false;
 
   var converted = Math.ceil(time / 60);
-  // DONE: Add the current lap and time to the "laps" div.
+  // DONE: Add the current lap and time to the "laps" div.
   $("#timeMessage").prepend(
-    "<p>Good job! You worked " + converted + " minutes!</p>"
+    "<p>Good job! You worked " + converted + " minutes!</p>"
   );
   var mathAmount =
     (converted / 60) *
@@ -57,13 +59,13 @@ function stop() {
 }
 
 function count() {
-  // DONE: increment time by 1, remember we cant use "this" here.
+  // DONE: increment time by 1, remember we cant use "this" here.
   time++;
-  // DONE: Get the current time, pass that into the timeConverter function,
-  //       and save the result in a variable.
+  // DONE: Get the current time, pass that into the timeConverter function,
+  //       and save the result in a variable.
   var converted = timeConverter(time);
   console.log(converted);
-  // DONE: Use the variable we just created to show the converted time in the "display" div.
+  // DONE: Use the variable we just created to show the converted time in the "display" div.
   $("#display").text(converted);
 }
 function timeConverter(t) {
@@ -82,3 +84,34 @@ function timeConverter(t) {
 
   return minutes + ":" + seconds;
 }
+
+exports.timer = {
+  intervalId: intervalId,
+  clockRunning: clockRunning,
+  time: time,
+  reset: function () {
+    this.time = 0;
+  },
+  start: function () {
+    // DONE: Use setInterval to start the count here and set the clock to running.
+    if (!this.clockRunning) {
+      this.intervalId = setInterval(this.count, 1000);
+      this.clockRunning = true;
+    }
+  },
+  pause: pause,
+  stop: function () {
+    // DONE: Use clearInterval to stop the count here and set the clock to not be running.
+    clearInterval(this.intervalId);
+    this.clockRunning = false;
+  },
+  count: function () {
+    // DONE: increment time by 1, remember we cant use "this" here.
+    this.time++;
+    // DONE: Get the current time, pass that into the timeConverter function,
+    //       and save the result in a variable.
+    return this.time;
+  },
+  timeConverter: timeConverter
+};
+

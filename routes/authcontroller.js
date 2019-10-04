@@ -16,4 +16,3 @@ exports.dashboard = function(req, res) {
 exports.logout = function(req, res) {
   res.render("logout");
 };
-
