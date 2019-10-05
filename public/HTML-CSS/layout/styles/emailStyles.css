@@ -23,5 +23,21 @@ p{
     margin-left: 5%;
     color: black;
 }
-
+table{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 2%;
+}
+.navtext{
+    margin: auto;
+    font-size: 3rem;
+    color: white;
+}
+.marginleft{
+    margin-left:5%;
+}
+.margintop{
+    padding-top: 5%;
+    margin-top: 1%;
+}
 /* background-color: #3B3A40;
