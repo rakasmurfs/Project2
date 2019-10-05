@@ -6,6 +6,14 @@
     padding-top: 1%;
     padding-bottom: 1%;
 }
+.wrapper30{
+    width:30%;
+    margin-left: 20%;
+    background-color: rgb(59, 58, 64, 0.7);
+    border-radius: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
 button{
     display:inline-block;
     margin-left: 5%;
@@ -39,5 +47,11 @@ table{
 .margintop{
     padding-top: 5%;
     margin-top: 1%;
+}
+.loginforms{
+    margin-left: 5%;
+}
+.margintopnopad{
+    margin-top:2%;
 }
 /* background-color: #3B3A40;
