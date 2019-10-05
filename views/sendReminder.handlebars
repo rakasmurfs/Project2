@@ -21,14 +21,17 @@
                     <label for="password-input">Password</label>
                     <input class="form-control" id="password-input" type="password" placeholder="password">
                 </div>
-                <hr>
-                <select class="selectedEmployer">
+                <p>Select who you would like to email</p>
+                <select class="selectedEmployer" placeholder="Select Employer">
                     <option disabled selected value> -- select an option -- </option>
                     {{#each employer}}
                     <option value={{this.employerEmail}}>{{this.employerName}}, {{this.employerEmail}}</option>
                     {{/each}}
                 </select>
-                <hr>
+                <div class="form-group">
+                    <label for="email-input">Send To: </label>
+                    <input class="form-control" id="email-to-input" type="text">
+                </div>
                 <p>Pick an email template or write your own</p>
                 <button id="initial-message">Initial Bill</button>
                 <button id="reminder-message">Remind</button>
