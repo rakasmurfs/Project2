@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
-  app.get("/", function(req, res) {
+  app.get("/index", function(req, res) {
     db.Invoice.findAll({
       include: [db.Employer]
     }).then(function(dbInvoices) {
@@ -30,7 +30,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/signIn", function(req, res) {
+  app.get("/", function(req, res) {
     db.Employer.findAll({}).then(function(dbEmployer) {
       res.render("signin", {
         msg: "Welcome!",
