@@ -21,6 +21,31 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/signUp", function(req, res) {
+    db.Employer.findAll({}).then(function(dbEmployer) {
+      res.render("signup", {
+        msg: "Welcome!",
+        employer: dbEmployer
+      });
+    });
+  });
+
+  app.get("/signIn", function(req, res) {
+    db.Employer.findAll({}).then(function(dbEmployer) {
+      res.render("signin", {
+        msg: "Welcome!",
+        employer: dbEmployer
+      });
+    });
+  });
+
+  app.get("/logout", function(req, res) {
+    res.render("logout", {
+      msg: "Welcome!",
+      employer: dbEmployer
+    });
+  });
+
   // Load example page and pass in an example by id
   app.get("/timer", function(req, res) {
     res.render("timer");
