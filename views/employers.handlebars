@@ -1,81 +1,75 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
+<link rel="stylesheet" href="HTML-CSS/layout/styles/style.css" media="screen" title="no title" charset="utf-8">
+<link href="HTML-CSS/layout/styles/emailStyles.css" rel="stylesheet" type="text/css" media="all">
 
-        <h2>Current Employers</h2>
-<table>
-    <tr>
-        <th>Employer Name</th>
-        <th>Employer Email</th>
-        <th>Employer Phone Number</th>
-    </tr>
-  {{#each employer}}
-    <tr>
-        <td>{{this.employerName}}</td> 
-        <td>{{this.employerEmail}}</td>
-        <td>{{this.employerPhoneNumber}}</td>
-        <td>{{this.id}}</td>
-        <td><button class="edit" data-id="{{this.id}}">Edit</button></td>
-        <td><button class="delete-employer" data-id="{{this.id}}">Delete</button></td>
-    </tr>
-  {{/each}}
-</table>
+<div class="bgded overlay margintop" style="background-image: url('HTML-CSS/images/backgrounds/01.png')">
+    <!-- ################################################################################################ -->
 
-        <h2>Add an employer</h2>
+    <div class="wrapper60 margintop">
+        <table>
+            <tr>
+                <th>Employer Name</th>
+                <th>Employer Email</th>
+                <th>Employer Phone Number</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            {{#each employer}}
+            <tr>
+                <td>{{this.employerName}}</td>
+                <td>{{this.employerEmail}}</td>
+                <td>{{this.employerPhoneNumber}}</td>
+                <td>{{this.id}}</td>
+                <td><button class="edit" data-id="{{this.id}}">Edit</button></td>
+                <td><button class="delete-employer" data-id="{{this.id}}">Delete</button></td>
+            </tr>
+            {{/each}}
+        </table>
+
+        <h2 class="marginleft">Add an employer</h2>
         <div class="card-body">
 
-          <!-- Sign-up Form (note the various input "types")-->
-          <form role="form">
-            <div class="form-group row">
-              <label for="name-input">Name:</label>
-              <input class="form-control" id="name-input" type="text">
-            </div>
-            <div class="form-group row">
-              <label for="email-input">Email:</label>
-              <input class="form-control" id="email-input" type="email">
-            </div>
-            <div class="form-group row">
-              <label for="number-input">Phone Number</label>
-              <input class="form-control" id="number-input" type="number">
-            </div>
-            <div class="form-group row">
-              <label for="number-input">Street</label>
-              <input class="form-control" id="street-input">
-            </div>            
-            <div class="form-group row">
-              <label for="number-input">City</label>
-              <input class="form-control" id="city-input">
-            </div>
-            <div class="form-group row">
-              <label for="number-input">State</label>
-              <input class="form-control" id="state-input">
-            </div>
-            <div class="form-group row">
-              <label for="number-input">Zipcode</label>
-              <input class="form-control" id="zipcode-input" type="number">
-            </div>            
-            <button class="btn btn-default" id="add-employer" type="button">Submit</button>
-            <button class="btn btn-default" id="edit-employer" type="button" style="display: none">Save Changes</button>
-          </form>
+            <!-- Sign-up Form (note the various input "types")-->
+            <form role="form">
+                <div class="form-group">
+                    <label for="name-input">Name:</label>
+                    <input class="form-control" id="name-input" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="email-input">Email:</label>
+                    <input class="form-control" id="email-input" type="email">
+                </div>
+                <div class="form-group">
+                    <label for="number-input">Phone Number</label>
+                    <input class="form-control" id="number-input" type="number">
+                </div>
+                <div class="form-group">
+                    <label for="number-input">Street</label>
+                    <input class="form-control" id="street-input">
+                </div>
+                <div class="form-group">
+                    <label for="number-input">City</label>
+                    <input class="form-control" id="city-input">
+                </div>
+                <div class="form-group">
+                    <label for="number-input">State</label>
+                    <input class="form-control" id="state-input">
+                </div>
+                <div class="form-group">
+                    <label for="number-input">Zipcode</label>
+                    <input class="form-control" id="zipcode-input" type="number">
+                </div>
+                <button class="btn btn-default" id="add-employer" type="button">Submit</button>
+                <button class="btn btn-default" id="edit-employer" type="button" style="display: none">Save
+                    Changes</button>
+            </form>
 
         </div>
 
-
-        {{!-- <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul> --}}
-      </div>
     </div>
-  </div>
-</div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+
+
+
+
+</div>
